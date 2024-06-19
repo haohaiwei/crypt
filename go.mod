@@ -6,7 +6,7 @@ go 1.21
 
 require (
 	cloud.google.com/go/firestore v1.15.0
-	github.com/hashicorp/consul/api v1.28.3
+	github.com/hashicorp/consul/api v1.29.1
 	github.com/nats-io/nats.go v1.35.0
 	github.com/pkg/errors v0.9.1
 	go.etcd.io/etcd/api/v3 v3.5.13
@@ -36,7 +36,6 @@ require (
 	github.com/google/s2a-go v0.1.7 // indirect
 	github.com/googleapis/enterprise-certificate-proxy v0.3.2 // indirect
 	github.com/googleapis/gax-go/v2 v2.12.4 // indirect
-	github.com/hashicorp/consul/proto-public v0.6.1 // indirect
 	github.com/hashicorp/errwrap v1.1.0 // indirect
 	github.com/hashicorp/go-cleanhttp v0.5.2 // indirect
 	github.com/hashicorp/go-hclog v1.5.0 // indirect
