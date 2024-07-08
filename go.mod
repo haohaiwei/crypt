@@ -14,7 +14,7 @@ require (
 	go.etcd.io/etcd/client/v3 v3.5.14
 	golang.org/x/crypto v0.25.0
 	google.golang.org/api v0.187.0
-	google.golang.org/grpc v1.64.0
+	google.golang.org/grpc v1.65.0
 )
 
 require (
