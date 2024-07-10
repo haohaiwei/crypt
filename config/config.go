@@ -5,12 +5,13 @@ import (
 	"io"
 	"io/ioutil"
 
-	"github.com/sagikazarmark/crypt/backend"
-	"github.com/sagikazarmark/crypt/backend/consul"
-	"github.com/sagikazarmark/crypt/backend/etcd"
-	"github.com/sagikazarmark/crypt/backend/firestore"
-	"github.com/sagikazarmark/crypt/backend/natskv"
-	"github.com/sagikazarmark/crypt/encoding/secconf"
+	"github.com/haohaiwei/crypt/backend"
+	"github.com/haohaiwei/crypt/backend/consul"
+	"github.com/haohaiwei/crypt/backend/etcd"
+	"github.com/haohaiwei/crypt/backend/firestore"
+	"github.com/haohaiwei/crypt/backend/natskv"
+	"github.com/haohaiwei/crypt/backend/zookeeper"
+	"github.com/haohaiwei/crypt/encoding/secconf"
 )
 
 type KVPair struct {
@@ -56,6 +57,13 @@ func NewStandardFirestoreConfigManager(machines []string) (ConfigManager, error)
 	}
 	return NewStandardConfigManager(store)
 }
+func NewStandardZookeeperConfigManager(machines []string) (ConfigManager, error) {
+	store, err := zookeeper.New(machines)
+	if err != nil {
+		return nil, err
+	}
+	return NewStandardConfigManager(store)
+}
 
 // NewStandardEtcdConfigManager returns a new ConfigManager backed by etcd.
 func NewStandardEtcdConfigManager(machines []string) (ConfigManager, error) {
@@ -75,6 +83,13 @@ func NewStandardEtcdV3ConfigManager(machines []string) (ConfigManager, error) {
 	}
 
 	return NewStandardConfigManager(store)
+}
+func NewZookeeperConfigManager(machines []string, keystore io.Reader) (ConfigManager, error) {
+	store, err := zookeeper.New(machines)
+	if err != nil {
+		return nil, err
+	}
+	return NewConfigManager(store, keystore)
 }
 
 // NewStandardConsulConfigManager returns a new ConfigManager backed by consul.

@@ -3,16 +3,17 @@ package etcd
 import (
 	"context"
 	"fmt"
-	"github.com/pkg/errors"
-	"github.com/sagikazarmark/crypt/backend"
-	"go.etcd.io/etcd/api/v3/mvccpb"
-	goetcdv3 "go.etcd.io/etcd/client/v3"
 	"os"
 	"sort"
 	"strconv"
 	"strings"
 	"sync"
 	"time"
+
+	"github.com/haohaiwei/crypt/backend"
+	"github.com/pkg/errors"
+	"go.etcd.io/etcd/api/v3/mvccpb"
+	goetcdv3 "go.etcd.io/etcd/client/v3"
 )
 
 type ClientV3 struct {
